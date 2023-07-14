@@ -1,0 +1,15 @@
+.add-btn-monitoring {
+  color: white;
+  background-color: #2a27c9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  display: flex;
+  width: 114px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
