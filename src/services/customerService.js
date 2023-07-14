@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/customers";
+const baseURL = "https://superlaundryapp.onrender.com/customers";
 
 let token = null;
 function setToken(newToken) {
@@ -14,9 +14,7 @@ function createCustomer(customer) {
   const config = {
     headers: { Authorization: token },
   };
-  return axios
-    .post("http://localhost:8080/customers/registration", customer)
-    .then((res) => res.data);
+  return axios.post(baseURL, customer).then((res) => res.data);
 }
 export default {
   getCustomers,

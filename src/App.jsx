@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CustomerList from "./components/CustomerList";
 import RegisterForm from "./components/RegisterForm";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import customerService from "./services/customerService";
 import Joblist from "./components/Joblist";
 import Landing from "./components/Landing";
@@ -13,7 +13,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [customer, setCustomer] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem("loggedCustomer");
 
@@ -22,7 +22,7 @@ function App() {
       setCustomer(customer);
       customerService.setToken(customer.token);
     }
-  }, []);
+  }, [navigate]);
 
   return (
     // <div>
@@ -72,6 +72,8 @@ function App() {
             />
           }
         />
+
+        <Route path="/customer/registration" element={<RegisterForm />} />
       </Routes>
     </div>
   );
